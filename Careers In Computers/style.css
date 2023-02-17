@@ -1,0 +1,26 @@
+#buttons{
+    text-align: center;
+    border-bottom: 3px solid #54452b;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+h2, h3{
+    text-align: center;
+    background-color: grey;
+    font: 40px "Trebuchet MS";
+    color: white;
+    margin-bottom: 0px;
+    padding: 10px;
+}
+
+html{
+    height: 105% /* needed the stretch out the gradient*/
+}
+
+body{
+    width: 800px;
+    margin: 10px auto;
+    background: linear-gradient(white, grey);
+}
+

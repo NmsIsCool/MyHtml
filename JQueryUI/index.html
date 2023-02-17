@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=”UTF-8”>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/vader/jquery-ui.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+  <script>
+    $(startup);
+    function startup()
+    {
+        $('button').button();
+        $('button').css('font size','14px');
+        $('#timetable').accordion({heightstyle:'content'});
+        $('#timetable').css('width','400px');
+        
+    }
+  </script>
+
+<title>idk tbh</title>
+
+</head>
+
+<body>
+  <button id="nav1">topic 1</button>
+  <button id="nav2">topic 2</button>
+  <button id="nav3">topic 3</button>
+
+  <div id="timetable">
+    <h4>Period 1</h4>
+    <div>
+      Computer Studies<br>
+      Room 164
+    </div>
+
+    <h4>Period 2</h4>
+    <div>
+      Math<br>
+      Room 291
+    </div>
+
+    <h4>Period 3</h4>
+    <div>
+      Science<br>
+      Room 132
+    </div>
+
+    <h4>Period 4</h4>
+    <div> 
+      History<br>
+      Room 256
+    </div>
+  </div>
+</body>
+
+</html>
