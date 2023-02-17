@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=”UTF-8”>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/vader/jquery-ui.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    $(startup);
+    function startup()
+    {
+        $('button').button();
+        $('button').css('text-size','10');
+        $('#accordion').accordion();
+        $('#accordion').accordion({heightStyle:"content"});
+        $('#accordion').accordion({collapsible: true});
+        
+    }
+  </script>
+  
+
+<title>Careers in Computers</title>
+
+</head>
+
+<body>
+  <h2>Careers In Computers</h2>
+  <h3>Web Designer</h3>
+
+  <!--Button Div-->
+  <div id="buttons">
+  <a href="index.html"><button>Web Designer</button></a>
+  <a href='career2.html'><button>Software Engineer</button></a>
+  <a href='career3.html'><button>Game Developer</button></a>
+  </div>
+
+  <!--Accordion Divs-->
+  <div id="accordion">
+    <h4>Description</h4>
+    <div>Web designers design and create websites that people like you browse. A web designer made this website!<br>
+    There are other things they do. I just don't know because of HTTP errors.</div>
+    <h4>Workplace</h4>
+    <div>A web designers workplace might be cool.<br>
+    I have no idea because of HTTP errors.</div>
+    <h4>Important Skills</h4>
+    <div>There are many important skills a web designer must have including good programming skills and problem solving skills.<br>
+    There are also likely other skills a web designer must know. I don't know because of HTTP errors. </div>
+    <h4>Education Requirements</h4>
+    <div>A web designer must meet certain educational requirements to get a good job.<br>
+    I just don't know because of HTTP errors</div>
+    <h4>Schools</h4>
+    <div>Ideal schools for a web designer are: HTTP errors.</div>
+  </div>
+</body>
+
+</html>
