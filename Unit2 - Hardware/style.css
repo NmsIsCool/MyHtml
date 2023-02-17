@@ -1,0 +1,64 @@
+div{
+    float: left;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+#content{
+    width: 750px;
+    border: 3px double black;
+}
+
+#menu{
+    width: 150px;
+    border-right: 10px solid darkgrey;
+}
+
+button{
+    display: block;
+    width: 100px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+}
+
+body{
+    width: 960px;
+    margin: 0px auto;
+    background-color: white;
+}
+
+p{
+    font-family: "Verdana";
+    font-size: 16px;
+    margin: 20px;
+}
+
+h1{
+    text-align: center;
+    margin: 0px;
+    font-family: "Verdana";
+    padding-top: 10px;
+}
+
+h2{
+    text-align: right;
+    font-family: "Impact";
+    font-size: 48px;
+    background-color: black;
+    color: white;
+    margin: 0px;
+    padding: 10px;
+}
+
+img{
+    display: block;
+    margin: 0px auto;
+}
+
+a{
+    text-decoration: none;
+}
+
+html{
+    background-color: #666666;
+}
