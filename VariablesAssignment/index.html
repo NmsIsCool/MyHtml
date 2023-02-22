@@ -12,10 +12,13 @@
   <script>
     $(startup);
     function startup(){
-        var tanksize, distance, Milage;
+        
         $('#thing').tabs();
         $('#milage').click(calcmilage);
         $('#clearcar').click(clearC);
+
+        $('#pay').click(calcpay);
+        $('#clearpay').click(clearpay);
         
         
         function calcmilage(){
@@ -37,6 +40,27 @@
           $("#totallabel").html("Your car's gas rating is: ");
         }
     }
+
+        function calcpay(){
+          var wage, hours, pay;
+
+          wage=$('#wage').val();
+          wage=Number(wage);
+
+          hours=$('#hours').val();
+          hours=Number(hours);
+
+          pay=wage*hours;
+
+          $('#totallabel2').html("Total pay = "+pay.toFixed(2));
+
+        }
+
+        function clearpay(){
+          $('#wage').val("");
+          $('#hours').val("");
+          $('#totallabel2').html("Total pay = ");
+        }
 
     
 
@@ -69,7 +93,17 @@
             <div id="totallabel">Your car's gas rating is:</div>
         
     </div>
-    <div id="assign2"> </div>
+    <div id="assign2"> 
+
+      <label for="hours">Enter Hours Worked: <input id='hours' type='text' size='3'></label> <br>
+      <label for="wage">Enter your hourly wage: <input id='wage' type='text' size='3'></label> <br>
+
+      <button id="pay">Calculate Pay</button>
+      <button id="clearpay">Clear</button>
+
+      <div id="totallabel2">Total Pay = </div>
+
+    </div>
     <div id="assign3"> </div>
   </div>
 </body>
