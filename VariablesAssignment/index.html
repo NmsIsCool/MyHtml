@@ -9,13 +9,31 @@
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/le-frog/jquery-ui.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 
+  <script>
+    $(startup);
+    function startup(){
+        $('thing').tabs();
+  
+    }
+  </script>
 
-<title>(YOUR TITLE)</title>
+
+<title>Variables Assign</title>
 
 </head>
 
 <body>
-  <h1>This is HTML</h1>
+  <div id="thing">
+    <ul>
+        <li><a href="#assign1">Assignment 1</a></li>
+        <li><a href="#assign2">Assignment 2</a></li>
+        <li><a href="#assign3">Assignment 3</a></li>
+    </ul>
+
+    <div id="assign1"> </div>
+    <div id="assign2"> </div>
+    <div id="assign3"> </div>
+  </div>
 </body>
 
 </html>
