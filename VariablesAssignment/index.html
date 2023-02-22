@@ -15,6 +15,7 @@
         var tanksize, distance, Milage;
         $('#thing').tabs();
         $('#milage').click(calcmilage);
+        $('#clearcar').click(clearC);
         
         
         function calcmilage(){
@@ -27,8 +28,14 @@
             distance=Number(distance);
 
             Milage=(tanksize/distance)*100;
-            $("#totallabel").html("You car's gas rating is "+Milage.toFixed(2)+"L per 100km.");
+            $("#totallabel").html("You car's gas rating is: "+Milage.toFixed(2)+"L per 100km.");
         }  
+
+        function clearC(){
+          $("#size").val("");
+          $("#dist").val("");
+          $("#totallabel").html("Your car's gas rating is: ");
+        }
     }
 
     
@@ -56,6 +63,7 @@
             <label for="size">Enter size of gas tank (L): <input id='size' type='text' size='3'></label>
 
             <button id="milage">Calculate Milage</button>
+            <button id="clearcar">Clear</button>
            
 
             <div id="totallabel">Your car's gas rating is:</div>
