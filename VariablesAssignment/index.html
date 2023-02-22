@@ -12,7 +12,23 @@
   <script>
     $(startup);
     function startup(){
-        $('thing').tabs();
+        $('#thing').tabs();
+        $('#milage').click(calcmilage);
+
+        function calcmilage(){
+            var tanksize, distance, Milage;
+
+            tanksize=$("#size").val();
+            tanksize=Number(tanksize);
+
+            distance=$("#dist").val();
+            distance=Number(distance);
+
+            Milage=(tanksize/distance)*100;
+            $("#totallabel").html("You car's gas rating is "+Milage.toFixed(2)+"L per 100km.");
+        }
+
+        
   
     }
   </script>
@@ -30,7 +46,19 @@
         <li><a href="#assign3">Assignment 3</a></li>
     </ul>
 
-    <div id="assign1"> </div>
+    <!--Create Car Gas Rating Calculator-->
+    <div id="assign1">
+        <form>
+            <label for='dist'>Enter Distance Travelled(km): <input id='dist' type="text" size="3"></label> <br>
+            <label for="size">Enter size of gas tank (L): <input id='size' type='text' size='3'></label>
+
+            <button id="milage">Calculate Milage</button>
+
+            <div id="totallabel">Your car's gas rating is:</div>
+
+
+        </form>
+    </div>
     <div id="assign2"> </div>
     <div id="assign3"> </div>
   </div>
