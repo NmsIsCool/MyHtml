@@ -19,6 +19,10 @@
 
         $('#pay').click(calcpay);
         $('#clearpay').click(clearpay);
+
+        $('#add').click(addItem);
+        $("#clearlist").click(clearList);
+        
         
         
         function calcmilage(){
@@ -60,6 +64,27 @@
           $('#wage').val("");
           $('#hours').val("");
           $('#totallabel2').html("Total pay = ");
+        }
+
+        function addItem(){
+          var item, price, totalprice;
+          
+          item=$('#item').val();
+          price=$('#price').val();
+          totalprice+=$('#price').val()
+          price=Number(price);
+          totalprice=Number(totalprice);
+          
+          $('#itemlist').append('<option> '+item+" -> $"+price);
+          
+          
+        }
+
+        function clearList(){
+          $('#itemlist').html("");
+          $('#item').val("")
+          $('#price').val('')
+          $("#totalprice").html("Total Price: $0.00");
         }
 
     
@@ -104,7 +129,19 @@
       <div id="totallabel2">Total Pay = </div>
 
     </div>
-    <div id="assign3"> </div>
+    <div id="assign3"> 
+
+      <label for="item">Enter Food Item: <input id='item' type='text' size='5'></label> <br>
+      <label for="price">Enter Price of Item: <input id='price' type='text' size='3'></label> <br>
+
+      <button id='add'>Add to list</button>
+      <button id="clearlist">Clear List</button><br>
+
+      <select size="9" id="itemlist"></select><br>
+      <div id="totalprice">Total Price: $0.00</div>
+
+
+    </div>
   </div>
 </body>
 
