@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=”UTF-8”>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/le-frog/jquery-ui.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+  <script>
+    $(startup);
+    function startup(){
+        
+        $('#thing').tabs();
+        $('#milage').click(calcmilage);
+        $('#clearcar').click(clearC);
+
+        $('#pay').click(calcpay);
+        $('#clearpay').click(clearpay);
+
+        $('#add').click(addItem);
+        $("#clearlist").click(clearList);
+        
+        
+        
+        function calcmilage(){
+            var tanksize, distance, Milage;
+
+            tanksize=$("#size").val();
+            tanksize=Number(tanksize);
+
+            distance=$("#dist").val();
+            distance=Number(distance);
+
+            Milage=(tanksize/distance)*100;
+            $("#totallabel").html("You car's gas rating is: "+Milage.toFixed(2)+"L per 100km.");
+        }  
+
+        function clearC(){
+          $("#size").val("");
+          $("#dist").val("");
+          $("#totallabel").html("Your car's gas rating is: ");
+        }
+    }
+
+        function calcpay(){
+          var wage, hours, pay;
+
+          wage=$('#wage').val();
+          wage=Number(wage);
+
+          hours=$('#hours').val();
+          hours=Number(hours);
+
+          pay=wage*hours;
+
+          $('#totallabel2').html("Total pay = "+pay.toFixed(2));
+
+        }
+
+        function clearpay(){
+          $('#wage').val("");
+          $('#hours').val("");
+          $('#totallabel2').html("Total pay = ");
+        }
+
+        function addItem(){
+          var item, price, totalprice;
+          
+          item=$('#item').val();
+          price=$('#price').val();
+          totalprice+=$('#price').val()
+          price=Number(price);
+          totalprice=Number(totalprice);
+          
+          $('#itemlist').append('<option> '+item+" -> $"+price);
+          
+          
+        }
+
+        function clearList(){
+          $('#itemlist').html("");
+          $('#item').val("")
+          $('#price').val('')
+          $("#totalprice").html("Total Price: $0.00");
+        }
+
+    
+
+        
+  </script>
+
+
+<title>Variables Assignment</title>
+
+</head>
+
+<body>
+  <div id="thing">
+    <ul>
+        <li><a href="#assign1">Assignment 1</a></li>
+        <li><a href="#assign2">Assignment 2</a></li>
+        <li><a href="#assign3">Assignment 3</a></li>
+    </ul>
+
+    <!--Create Car Gas Rating Calculator-->
+    <div id="assign1">
+        
+            <label for='dist'>Enter Distance Travelled(km): <input id='dist' type="text" size="3"></label> <br>
+            <label for="size">Enter size of gas tank (L): <input id='size' type='text' size='3'></label>
+
+            <button id="milage">Calculate Milage</button>
+            <button id="clearcar">Clear</button>
+           
+
+            <div id="totallabel">Your car's gas rating is:</div>
+        
+    </div>
+    <div id="assign2"> 
+
+      <label for="hours">Enter Hours Worked: <input id='hours' type='text' size='3'></label> <br>
+      <label for="wage">Enter your hourly wage: <input id='wage' type='text' size='3'></label> <br>
+
+      <button id="pay">Calculate Pay</button>
+      <button id="clearpay">Clear</button>
+
+      <div id="totallabel2">Total Pay = </div>
+
+    </div>
+    <div id="assign3"> 
+
+      <label for="item">Enter Food Item: <input id='item' type='text' size='5'></label> <br>
+      <label for="price">Enter Price of Item: <input id='price' type='text' size='3'></label> <br>
+
+      <button id='add'>Add to list</button>
+      <button id="clearlist">Clear List</button><br>
+
+      <select size="9" id="itemlist"></select><br>
+      <div id="totalprice">Total Price: $0.00</div>
+
+
+    </div>
+  </div>
+</body>
+
+</html>
