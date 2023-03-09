@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=”UTF-8”>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/vader/jquery-ui.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+  <script src="java.js"></script>
+
+
+<title>Student Survey</title>
+
+</head>
+
+<body>
+  <h2>Student Survey Form</h2>
+  <br>
+  <div id="container">
+    <input type="checkbox" id="soccerbox"> Soccer</input>
+    <input type="checkbox" id="footballbox"> Football</input>
+    <input type="checkbox" id="hockeybox"> Hockey</input>
+    <br><br>
+    <input type="radio" name="sizeoption" id="smallrad"> Small
+    <input type="radio" name="sizeoption" id="mediumrad"> Medium 
+    <input type="radio" name="sizeoption" id="largerad"> Large 
+    <br>
+    <p>Rate your interest from 1 to 10:</p>
+    <div id="ratingsbox">5</div>
+    <input type="range" id="ratingslider" min="1" max="10">
+    <br><br><br>
+    <button id="btnsubmit">Submit</button>
+    <button id="btnreset">Reset</button>
+    <br><br>
+    <div id="resultbox"></div>
+</div>
+</body>
+
+</html>
