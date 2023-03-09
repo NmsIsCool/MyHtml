@@ -49,5 +49,18 @@ function startup(){
     rating=Number(rating);
     $("#ratingsbox").html(rating);
    }
+
+   function reset(){
+    $("#soccerbox").prop("checked", false);
+    $("#footballbox").prop("checked", false);
+    $("#hockeybox").prop("checked", false);
+    $("#smallrad").prop("checked", false);
+    $("#mediumrad").prop("checked", false);
+    $("#largerad").prop("checked", false);
+    rating=5;
+    $("#ratingsbox").html(rating);
+    $("#ratingslider").val(rating);
+    $("#resultbox").html("");
+   }
    
 }
