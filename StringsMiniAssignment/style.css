@@ -1,0 +1,10 @@
+#output{
+    clear: both;
+    height: 40px;
+    width: 200px;
+    border: double black;
+    text-align: center;
+    padding: 15px;
+    background-color: pink;
+    color: purple;
+}
