@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trig Expression Game</title>
+	<script>
+		function generateExpression() {
+			// Generates a random trigonometric expression with angle values of 30, 45, 60 or 90
+			var angle = [30, 45, 60, 90][Math.floor(Math.random() * 4)];
+			var func = Math.floor(Math.random() * 6);
+			var funcs = ['sin', 'cos', 'tan', 'csc', 'sec', 'cot'];
+			return funcs[func] + '(' + angle + ')';
+		}
+
+		function checkAnswer(expression, answer) {
+			// Checks if the user's answer is correct or not
+			try {
+				// replace csc, sec, and cot with their reciprocal functions
+				expression = expression.replace('csc', '1/Math.sin').replace('sec', '1/Math.cos').replace('cot', '1/Math.tan');
+				// evaluate the expression and compare it to the user's answer
+				var result = eval(expression);
+				if (result === Infinity || result === -Infinity) {
+					result = 'inf';
+				}
+				return Math.isCloseTo(result, parseFloat(answer));
+			}
+			catch {
+				return false;
+			}
+		}
+
+		function newExpression() {
+			// Generates a new expression and displays it
+			expression = generateExpression();
+			document.getElementById('expression').textContent = expression;
+			document.getElementById('result').textContent = '';
+		}
+
+		function submitAnswer() {
+			// Checks the user's answer and displays a message box with the result
+			var expression = document.getElementById('expression').textContent;
+			var answer = document.getElementById('answer').value;
+			if (checkAnswer(expression, answer)) {
+				alert('Correct!');
+			}
+			else {
+				alert('Incorrect!');
+			}
+			newExpression();
+			document.getElementById('answer').value = '';
+		}
+	</script>
+</head>
+<body>
+	<h1>Trig Expression Game</h1>
+	<p>What is the value of:</p>
+	<p id="expression"></p>
+	<label for="answer">Answer:</label>
+	<input type="text" id="answer">
+	<br>
+	<button type="button" onclick="submitAnswer()">Submit</button>
+	<p id="result"></p>
+	<button type="button" onclick="newExpression()">New Expression</button>
+</body>
+</html>
