@@ -1,11 +1,12 @@
 import java.awt.Font;
+import lib.hsa;
 
 public class main {
-    public static void out(String str) {
+    public static void print(String str) {
         System.out.println(str);
     }
 
     public static void main(String args[]) {
-        out("I like men");
+        print("I like men");
     }
 }

@@ -1,0 +1,11 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/hsa.jar",
+        "lib/core.jar",
+        "lib/G4P.jar"
+    ],
+    "java.project.sourcePaths": [
+        "src"
+    ],
+    "java.project.outputPath": "bin"
+}
