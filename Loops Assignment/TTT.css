@@ -1,10 +1,8 @@
-button{
-    width: 200px;
-    height: 200px;
-    font: 80px Arial;
-    margin: 10px;
-    background: #DDD;
-}
-#bzone{
-    padding-left: 150px;
-}
+.tile.X::before {
+    content: "X";
+  }
+  
+  .tile.O::before {
+    content: "O";
+  }
+  

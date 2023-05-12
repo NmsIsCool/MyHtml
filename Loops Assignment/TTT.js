@@ -1,67 +1,54 @@
-$(startup);
-var buttons="";
-var turn="X";
-var gameover=false;
 
-function startup(){
-    //make 9 buttons with a "-" and IDs=btn1 to btn9
-    for (var x=1; x<=9; x++){
-        buttons+="<button id='btn"+x+"'>-</button";
-    }
-    //put buttons in bzone div
-    $("#bzone").html(buttons);
-    //attach all buttons to the same go function
-    $("button").click(go);
-}  
 
-function go(){
-    if(gameover){
-        gameover=false;
-        restart();
-        return;
-    }
-    var content=$(this).html();
+const gameBoard = document.getElementById('game-board');
+const squares = [];
 
-    if(content==="-"){
-         $(this).html(turn);
-         if(turn=="X"){
-            turn="O";}else {turn="X";}
-         }
-        }
-function restart(){
-    for(var x=1; x<=9; x++){
-        $("#btn"+x).html("-");
-        $("#btn"+x).css("background", "#DDD");
+let currentPlayer = 'x';
+let moves = 0;
+
+// Create the game board
+for (let i = 0; i < 9; i++) {
+  const square = document.createElement('div');
+  square.classList.add('square');
+  square.addEventListener('click', () => {
+    if (square.classList.contains('x') || square.classList.contains('o')) {
+      return;
     }
+    square.classList.add(currentPlayer);
+    moves++;
+    if (checkForWin()) {
+      alert(currentPlayer.toUpperCase() + ' wins!');
+      resetGame();
+      return;
+    }
+    if (moves === 9) {
+      alert("It's a tie!");
+      resetGame();
+      return;
+    }
+    currentPlayer = currentPlayer === 'x' ? 'o' : 'x';
+  });
+  squares.push(square);
+  gameBoard.appendChild(square);
 }
 
-function checkwin(a,b,c){
-    var box1 =$("#btn"+a).html();
-    var box2 =$("#btn"+b).html();
-    var box3 =$("#btn"+c).html();
-
-    if(box1+box2+box3=="XXX"){
-        $("#btn"+a).css("background", "red");
-        $("#btn"+b).css("background", "red");
-        $("#btn"+c).css("background", "red");
-        alert("X wins - click any square to start a new game");
-        gameover=true;
-    }
-    if(box1+box2+box3=="OOO"){
-        $("#btn"+a).css("background", "red");
-        $("#btn"+b).css("background", "red");
-        $("#btn"+c).css("background", "red");
-        alert("O wins - click any square to start a new game");
-        gameover=true;
-    }
-    
+// Check for a win
+function checkForWin() {
+  const winningCombos = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+    [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+    [0, 4, 8], [2, 4, 6]             // diagonals
+  ];
+  return winningCombos.some(combo => {
+    return combo.every(index => squares[index].classList.contains(currentPlayer));
+  });
 }
-checkwin(1,2,3);
-checkwin(4,5,6);
-checkwin(7,8,9);
-checkwin(1,4,7);
-checkwin(2,5,8);
-checkwin(3,6,9);
-checkwin(1,5,9);
-checkwin(3,5,7);
-    
+
+// Reset the game board
+function resetGame() {
+  squares.forEach(square => {
+    square.classList.remove('x', 'o');
+  });
+  currentPlayer = 'x';
+  moves = 0;
+}
