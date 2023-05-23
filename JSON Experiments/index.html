@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Song Information</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+  <h1>Add Song Information</h1>
+
+  <form id="songForm">
+    <label for="songTitle">Song Title:</label>
+    <input type="text" id="songTitle" required><br>
+
+    <label for="songGenre">Song Genre:</label>
+    <input type="text" id="songGenre" required><br>
+
+    <label for="band">Band:</label>
+    <input type="text" id="band" required><br>
+
+    <label for="era">Era:</label>
+    <input type="text" id="era" required><br>
+
+    <label for="youtubeLink">YouTube Video Link:</label>
+    <input type="text" id="youtubeLink" required><br>
+
+    <button type="submit">Add Song</button>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#songForm').submit(function(event) {
+        event.preventDefault();
+        var songTitle = $('#songTitle').val();
+        var songGenre = $('#songGenre').val();
+        var band = $('#band').val();
+        var era = $('#era').val();
+        var youtubeLink = $('#youtubeLink').val();
+
+        var videoObj = {
+          songName: songTitle,
+          genre: songGenre,
+          band: band,
+          era: era,
+          youtubeLink: youtubeLink
+        };
+
+        $.getJSON('videos.json', function(data) {
+          var lastVideo = data.videos[data.videos.length - 1];
+          var lastNumber = parseInt(lastVideo.name.substring(lastVideo.name.length - 4), 10);
+          var newNumber = lastNumber + 1;
+          var newObjectName = newNumber.toString().padStart(4, '0');
+
+          videoObj.name = newObjectName;
+          data.videos.push(videoObj);
+
+          var jsonData = JSON.stringify(data);
+
+          // Save the JSON data to a file
+          var blob = new Blob([jsonData], { type: 'application/json' });
+          var downloadLink = document.createElement('a');
+          downloadLink.href = URL.createObjectURL(blob);
+          downloadLink.download = 'videos.json';
+          downloadLink.click();
+
+          alert('Song added successfully!');
+          $('#songForm')[0].reset();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
